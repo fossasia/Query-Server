@@ -29,7 +29,7 @@ class Yahoo(Scraper):
         """
         urls = []
         for h in soup.findAll('h3', attrs={'class': 'title'}):
-            t = h.findAll('a', attrs={'class': ' ac-algo fz-l ac-21th lh-24'})
+            t = h.findAll('a', attrs={'class': 'ac-algo fz-l ac-21th lh-24'})
             for y in t:
                 r = y.get('href')
                 f = r.split('RU=')
@@ -79,7 +79,7 @@ class Yahoo(Scraper):
             r = t.get('aria-label')
             cleanr = re.compile('<.*?>')
             r = re.sub(cleanr, '', r)
-            cleanl = re.compile('&#[\d]+(;)')
+            cleanl = re.compile(r'&#[\d]+(;)')
             r = re.sub(cleanl, '\'', r)
             img = t.find('img', attrs={'class': 'process'})
             url = img.get('data-src')
